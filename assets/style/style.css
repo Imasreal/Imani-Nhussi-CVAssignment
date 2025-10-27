@@ -1,0 +1,109 @@
+:root{
+  --bg: whitesmoke;         
+  --text: dimgray;          
+  --nav-bg: black;          
+  --nav-text: white;        
+  --card-bg: transparent;
+  --button-bg: dimgray;     
+  --button-text: white;     
+}
+
+/* dark theme variables */
+body.dark {
+  --bg: black;              
+  --text: gainsboro;        
+  --nav-bg: black;          
+  --nav-text: white;        
+  --card-bg: transparent;
+  --button-bg: lightgray;   
+  --button-text: black;     
+}
+
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* layout spacing kept exactly as original */
+header, nav, section, footer {
+    padding: 20px;
+}
+
+/* nav */
+nav {
+    background: var(--nav-bg);
+    color: var(--nav-text);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    /* small padding to avoid overlapping when sticky */
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+nav a {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* profile image: ensure it never grows too big and preserves aspect */
+.profile-img {
+    width: 150px;
+    max-width: 40vw; /* on very small screens it will shrink */
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
+
+/* button */
+button {
+    padding: 8px 16px;
+    border: none;
+    background: var(--button-bg);
+    color: var(--button-text);
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+button:hover {
+    filter: brightness(0.9);
+}
+
+/* responsive */
+@media (max-width: 600px) {
+    nav { flex-direction: column; text-align: center; gap: 10px; padding: 14px; }
+}
+
+/* ensure sections and footer adapt in dark mode via variables (no structural change) */
+header, section, footer {
+    background: var(--card-bg);
+}
+
+/* links */
+a {
+  color: dodgerblue;      
+}
+
+body.dark a {
+  color: lightskyblue;    
+}
+
+
+/* small accessibility focus */
+a:focus, button:focus { outline: 3px solid rgba(11,94,215,0.25); outline-offset: 2px; }
+
